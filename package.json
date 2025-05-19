@@ -1,0 +1,26 @@
+{
+  "name": "oakengine-logo",
+  "title": "OakEngine Logo",
+  "version": "0.0.1",
+  "description": "OakEngine Logo Library",
+  "main": "src/js/oakenginelogo.js",
+  "files": [
+    "src/**/*"
+  ],
+  "keywords": [
+    "oakengine",
+    "logo",
+    "animation",
+    "svg"
+  ],
+  "author": {
+    "name": "Juergen Schwind an the OakEngine authors",
+    "url": "https://github.com/oakengine/logo/graphs/contributors"
+  },
+  "license": "MIT",
+  "homepage": "https://oakengine.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oakengine/logo.git"
+  }
+}
