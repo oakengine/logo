@@ -18,19 +18,30 @@ class OakEngineLogo {
         this.innerSpeed = config.innerSpeed !== undefined ? config.innerSpeed : defaults.innerSpeed;
         this.size = config.size || defaults.size;
 
-        // Rest der Initialisierung
-        this.elements = typeof selector === 'string'
-            ? document.querySelectorAll(selector)
-            : [selector];
-        this.instances = [];
-        this.animating = true;
+        // Check if we're in a browser environment
+        this.isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
 
-        // Create SVG template if it doesn't exist
-        if (!document.getElementById('oakengine-logo')) {
-            this.createSvgTemplate();
+        if (this.isBrowser) {
+            // Browser-specific initialization
+            this.elements = typeof selector === 'string'
+                ? document.querySelectorAll(selector)
+                : [selector];
+            this.instances = [];
+            this.animating = true;
+
+            // Create SVG template if it doesn't exist
+            if (!document.getElementById('oakengine-logo')) {
+                this.createSvgTemplate();
+            }
+
+            this.init();
+        } else {
+            // Node.js environment - just store the config
+            console.warn('OakEngineLogo: Running in Node.js environment. DOM manipulation is not available.');
+            this.elements = [];
+            this.instances = [];
+            this.animating = false;
         }
-
-        this.init();
     }
 
     // Create the SVG template programmatically
@@ -239,5 +250,15 @@ class OakEngineLogo {
                 instance.angles = new Array(8).fill(0);
             });
         }
+    }
+}
+
+// Export the class for use in Node.js
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+    module.exports = OakEngineLogo;
+} else {
+    // For browser environment, make it available globally
+    if (typeof window !== 'undefined') {
+        window.OakEngineLogo = OakEngineLogo;
     }
 }
