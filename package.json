@@ -1,7 +1,7 @@
 {
   "name": "oakengine-logo",
   "title": "OakEngine Logo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "OakEngine Logo Library",
   "main": "src/js/oakenginelogo.js",
   "files": [
