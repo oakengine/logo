@@ -1,0 +1,38 @@
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+###< symfony/framework-bundle ###
+/docker/mariadb/
+
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> php-cs-fixer/shim ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< php-cs-fixer/shim ###
+/public/oswtools/.caches/
+/public/oswtools/.logs/
+/public/oswtools/.sessions/
+/public/data/
+/public/.caches/
+/public/.logs/
+/public/.sessions/
+/.idea/
+/public/.scripts/
+/public/.locks/
+/public/apitest/
+/public/xml/
+/faker/
