@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OakEngine Logo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .demo-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .demo-title {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .oakengine-logo {
+            display: inline-block;
+        }
+
+        .controls {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        button {
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #3367d6;
+        }
+
+        .custom-controls {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fafafa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        input {
+            margin-bottom: 15px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .slider-container {
+            margin-bottom: 15px;
+        }
+
+        .range-slider {
+            width: 100%;
+        }
+
+        .slider-value {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        #svg-templates {
+            display: none;
+        }
+    </style>
+    <script src="src/js/oakenginelogo.js"></script>
+</head>
+<body>
+
+<div id="svg-templates">
+    <img src="src/svg/oakengine.svg" alt="OakEngine">
+</div>
+
+<h1>oakEngine Logo Animation</h1>
+
+<div class="logo-container">
+    <div class="demo-box">
+        <h2 class="demo-title">Standard Logo</h2>
+        <span class="oakengine-logo" id="logo1"></span>
+    </div>
+
+    <div class="demo-box">
+        <h2 class="demo-title">Default</h2>
+        <span class="oakengine-logo" id="logo2"></span>
+    </div>
+
+    <div class="demo-box">
+        <h2 class="demo-title">Colorful</h2>
+        <span class="oakengine-logo" id="logo3"></span>
+    </div>
+</div>
+
+<div class="controls">
+    <button id="pauseBtn">Pause</button>
+    <button id="reverseBtn">Reverse Direction</button>
+    <button id="resetBtn">Reset Position</button>
+    <button id="randomColorsBtn">Random Colors</button>
+</div>
+
+<div class="custom-controls">
+    <h3>Custom Logo</h3>
+    <label for="custom-colors">Colors (JSON array of 8 colors):</label>
+    <input type="text" id="custom-colors" value='["#3498db","#2ecc71","#e74c3c","#f39c12","#9b59b6","#1abc9c","#34495e","#ecf0f1"]'>
+
+    <div class="slider-container">
+        <label for="outer-speed">Outer Rings Speed:</label>
+        <input type="range" id="outer-speed" class="range-slider" min="-1" max="1" step="0.05" value="0.3">
+        <div class="slider-value" id="outer-speed-value">0.3</div>
+    </div>
+
+    <div class="slider-container">
+        <label for="inner-speed">Inner Gear Speed:</label>
+        <input type="range" id="inner-speed" class="range-slider" min="-1" max="1" step="0.05" value="-0.15">
+        <div class="slider-value" id="inner-speed-value">-0.15</div>
+    </div>
+
+    <label for="custom-size">Size (px):</label>
+    <input type="number" id="custom-size" value="200">
+
+    <button id="applyCustomBtn">Apply Custom Settings</button>
+    <span class="oakengine-logo" id="customLogo"></span>
+</div>
+
+<script>
+
+
+    // Initialize logo instances
+    const logoEngine = new OakEngineLogo('#logo1', {
+        colors: ["#0066cc", "#0077e6", "#0088ff", "#3399ff", "#66b3ff", "#99ccff", "#4d4d4d", "#fff"],
+        outerSpeed: 0.3,
+        innerSpeed: -0.15,
+        size: 250
+    });
+
+    new OakEngineLogo('#logo2');
+
+    new OakEngineLogo('#logo3', {
+        colors: ["#e74c3c", "#3498db", "#2ecc71", "#f39c12", "#9b59b6", "#1abc9c", "#34495e", "#ecf0f1"],
+        outerSpeed: 0.2,
+        innerSpeed: -0.1,
+        size: 180
+    });
+
+    new OakEngineLogo('#customLogo', {
+        colors: ["#3498db", "#2ecc71", "#e74c3c", "#f39c12", "#9b59b6", "#1abc9c", "#34495e", "#ecf0f1"],
+        outerSpeed: 0.3,
+        innerSpeed: -0.15,
+        size: 200
+    });
+
+    // UI Controls
+    const pauseBtn = document.getElementById('pauseBtn');
+    const reverseBtn = document.getElementById('reverseBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const randomColorsBtn = document.getElementById('randomColorsBtn');
+    const applyCustomBtn = document.getElementById('applyCustomBtn');
+    const outerSpeedSlider = document.getElementById('outer-speed');
+    const innerSpeedSlider = document.getElementById('inner-speed');
+    const outerSpeedValue = document.getElementById('outer-speed-value');
+    const innerSpeedValue = document.getElementById('inner-speed-value');
+
+    // Update slider value displays
+    outerSpeedSlider.addEventListener('input', () => {
+        outerSpeedValue.textContent = outerSpeedSlider.value;
+    });
+
+    innerSpeedSlider.addEventListener('input', () => {
+        innerSpeedValue.textContent = innerSpeedSlider.value;
+    });
+
+    pauseBtn.addEventListener('click', () => {
+        const isPlaying = logoEngine.toggleAnimation();
+        pauseBtn.textContent = isPlaying ? 'Pause' : 'Play';
+    });
+
+    reverseBtn.addEventListener('click', () => {
+        logoEngine.reverse();
+    });
+
+    resetBtn.addEventListener('click', () => {
+        logoEngine.reset();
+    });
+
+    randomColorsBtn.addEventListener('click', () => {
+        const randomColors = Array(8).fill().map(() =>
+            `#${Math.floor(Math.random()*16777215).toString(16).padStart(6, '0')}`
+        );
+        logoEngine.updateColors(randomColors);
+    });
+
+    applyCustomBtn.addEventListener('click', () => {
+        try {
+            const colorsInput = document.getElementById('custom-colors').value;
+            const outerSpeed = parseFloat(document.getElementById('outer-speed').value);
+            const innerSpeed = parseFloat(document.getElementById('inner-speed').value);
+            const sizeInput = parseInt(document.getElementById('custom-size').value);
+
+            const colors = JSON.parse(colorsInput);
+
+            // Create a new custom logo
+            const customLogo = document.getElementById('customLogo');
+            customLogo.innerHTML = '';
+
+            new OakEngineLogo(customLogo, {
+                colors,
+                outerSpeed,
+                innerSpeed,
+                size: sizeInput
+            });
+        } catch (error) {
+            alert('Error: ' + error.message);
+        }
+    });
+</script>
+</body>
+</html>
