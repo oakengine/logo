@@ -1,3 +1,7 @@
+/**
+ * OakEngine Logo Animation
+ * A JavaScript class for creating and animating the OakEngine logo
+ */
 class OakEngineLogo {
     constructor(selector, config = {}) {
         // Default-Werte definieren
