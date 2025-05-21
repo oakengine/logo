@@ -1,7 +1,7 @@
 {
   "name": "oakengine-logo",
   "title": "OakEngine Logo",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "OakEngine Logo Library",
   "main": "src/js/oakenginelogo.js",
   "files": [
@@ -21,6 +21,6 @@
   "homepage": "https://oakengine.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/oakengine/logo.git"
+    "url": "git+https://github.com/oakengine/logo.git"
   }
 }
