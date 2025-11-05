@@ -2,6 +2,8 @@
 
 A JavaScript library for creating and animating the OakEngine logo.
 
+[Live demo on CodePen](https://codepen.io/jschwind/pen/PwwvWGg)
+
 ## Installation
 
 ```bash
