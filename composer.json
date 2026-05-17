@@ -1,0 +1,24 @@
+{
+  "name": "oakengine/logo",
+  "description": "JavaScript library for creating and animating the OakEngine logo.",
+  "type": "library",
+  "keywords": [
+    "oakengine",
+    "logo",
+    "animation",
+    "svg",
+    "javascript"
+  ],
+  "homepage": "https://oakengine.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Juergen Schwind and the OakEngine authors",
+      "homepage": "https://github.com/oakengine/logo/graphs/contributors"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/oakengine/logo/issues",
+    "source": "https://github.com/oakengine/logo"
+  }
+}

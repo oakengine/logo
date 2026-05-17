@@ -10,6 +10,10 @@ A JavaScript library for creating and animating the OakEngine logo.
 npm install oakengine-logo
 ```
 
+```bash
+composer require oakengine/logo
+```
+
 ## Usage
 
 ### In Browser
